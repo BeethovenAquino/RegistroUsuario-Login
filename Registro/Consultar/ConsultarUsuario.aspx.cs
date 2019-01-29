@@ -15,7 +15,13 @@ namespace Registro.Consultar
         public static List<Usuarios> Lista { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            UsuarioGridView.DataBind();
+            if (!Page.IsPostBack)
+            {
+                FechaunoTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                FechadosTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                
+                UsuarioGridView.DataBind();
+            }
         }
     
 
@@ -24,8 +30,8 @@ namespace Registro.Consultar
             Expression<Func<Usuarios, bool>> filtro = x => true;
             Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
 
-            DateTime desde = DateTime.Now;
-            DateTime hasta = DateTime.Now;
+            DateTime desde = Convert.ToDateTime(FechaunoTextBox.Text); 
+            DateTime hasta = Convert.ToDateTime(FechadosTextBox.Text); 
 
 
             int id;
@@ -54,8 +60,7 @@ namespace Registro.Consultar
                     break;
 
                 case 5:
-                    desde = Convert.ToDateTime(FechaunoTextBox.Text);
-                    hasta = Convert.ToDateTime(FechadosTextBox.Text);
+                
 
                     filtro = p => p.Fecha >= desde.Date && p.Fecha <= hasta.Date;
 
