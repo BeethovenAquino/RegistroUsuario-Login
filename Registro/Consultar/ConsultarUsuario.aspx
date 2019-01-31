@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarUsuario.aspx.cs" Inherits="Registro.Consultar.ConsultarUsuario" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
+<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
 
     <div class="container form-group ">
         <div class="row">
@@ -68,5 +68,5 @@
             </div>
         </div>
     </div>
-
-</asp:Content>
+    
+</asp:content>
